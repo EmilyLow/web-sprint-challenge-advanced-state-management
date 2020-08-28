@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
+import {createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk"
+//Import reducer
 
-ReactDOM.render(<App />, document.getElementById("root"));
+//Replace with actual reducer
+let store = createStore([], applyMiddleware(thunk));
 
-//Is app ready to roll with proper middleware? I don't see any middleware but I'm unclear what should be here. Or if this is the correct index.js
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById("root"));
