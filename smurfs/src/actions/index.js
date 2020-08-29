@@ -7,13 +7,14 @@ export const  ADD_SMURF = "ADD_SMURF";
 //ADD SMURF ERROR? 
 
 export const getSmurfs = () => (dispatch) => {
+    console.log("getSmurfs called");
     dispatch({type:  FETCHING_SMURF_START});
     axios
-    .get("")
+    .get("http://localhost:3333/smurfs")
     .then((res) => {
         console.log(res);
         //Check payload
-        dispatch({type: FETCHING_SMURF_SUCCESS, payload: res})
+        dispatch({type: FETCHING_SMURF_SUCCESS, payload: res.data})
     })
     .catch((err) => {
         console.log(err);

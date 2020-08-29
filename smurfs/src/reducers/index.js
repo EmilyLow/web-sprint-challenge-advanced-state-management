@@ -7,7 +7,14 @@ import {
 
 //maybe shouldn't be empty?
 const  initialState = {
-    smurfs: [],
+    smurfs: [
+        {
+            name: "",
+            age: "",
+            height: "",
+            id: ""
+        }
+    ],
     error: ""
 
 };
@@ -24,7 +31,7 @@ export const smurfReducer = (state= initialState, action) => {
         case FETCHING_SMURF_SUCCESS:
             return {
                 ...state, 
-                smurfs: [action.payload],
+                smurfs: action.payload,
                 isFetching: false
             }
             //Possibly edit this too
