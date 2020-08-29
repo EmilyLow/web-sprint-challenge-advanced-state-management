@@ -39,7 +39,7 @@ export const smurfReducer = (state= initialState, action) => {
             return {...state, error: action.payload};
             //And this
         case ADD_SMURF:
-            return {...state};
+            return {...state, smurfs: action.payload};
         default:
             return state;
     }

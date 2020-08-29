@@ -28,18 +28,18 @@ export const getSmurfs = () => (dispatch) => {
 }
 
 //Put POST in here? Add error?
-export const addNewSmurf = (smurf) => {
+export const addNewSmurf = (smurf) => (dispatch) => {
     console.log("Smurf added, ", smurf);
     
     axios
     .post("http://localhost:3333/smurfs", smurf)
     .then((res) => {
         console.log("res post", res);
-        
+        dispatch({type: ADD_SMURF, payload: res.data})
     })
     .catch((err) => {
         console.log("Error,", err);
     })
     
-    return {type: ADD_SMURF}
+   
 };
