@@ -29,5 +29,17 @@ export const getSmurfs = () => (dispatch) => {
 
 //Put POST in here? Add error?
 export const addNewSmurf = (smurf) => {
-    return {type: ADD_SMURF, payload: smurf}
+    console.log("Smurf added, ", smurf);
+    
+    axios
+    .post("http://localhost:3333/smurfs", smurf)
+    .then((res) => {
+        console.log("res post", res);
+        
+    })
+    .catch((err) => {
+        console.log("Error,", err);
+    })
+    
+    return {type: ADD_SMURF}
 };

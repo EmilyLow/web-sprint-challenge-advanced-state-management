@@ -9,7 +9,7 @@ const SmurfList = (props) => {
     //Example does equivalnet of }, [getSmurfs]. Would that cause a load if called somewhere else?
     useEffect(() => {
         props.getSmurfs();
-    }, []);
+    }, [props.getSmurfs]);
 
     if (props.isFetching) {
         return <h2>Loading...</h2>

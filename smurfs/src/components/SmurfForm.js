@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addNewSmurf } from "../actions";
+import { addNewSmurf, getSmurfs } from "../actions";
 import { connect } from "react-redux";
 
 const SmurfForm = (props) => {
@@ -18,11 +18,17 @@ const SmurfForm = (props) => {
             })
         }
 
+        const submitData = e => {
+            e.preventDefault();
+            props.addNewSmurf(formState);
+            props.getSmurfs();
+        }
+
     return (
         <div>
             <h1>Smurf Form</h1>
             {/* Might need onSubmit so I can supress default */}
-            <form onSubmit={props.addNewSmurf(formState)}>
+            <form onSubmit={submitData}>
                 <label>
                     Name:    
                  <input
@@ -64,6 +70,6 @@ const mapStateToProps = (state) => {
     return {smurfs: state.smurfs, isFetching: state.isFetching};
 };
 
-const mapDispatchToProps = { addNewSmurf };
+const mapDispatchToProps = { addNewSmurf, getSmurfs };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);
