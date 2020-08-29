@@ -8,7 +8,7 @@ const SmurfForm = (props) => {
 
     return (
         <div>
-            Smurf Form
+            <h1>Smurf Form</h1>
         </div>
     )
 };

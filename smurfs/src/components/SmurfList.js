@@ -17,9 +17,13 @@ const SmurfList = (props) => {
 
     return (
         <div>
-            <p>Smurf List</p>
+            <h1>Smurf List</h1>
             {props.smurfs.map((smurf) => (
-                <p>Name: {smurf.name}</p>
+                <div>
+                    <h3>Name: {smurf.name}</h3>
+                    <p>Age: {smurf.age}</p>
+                    <p>Height: {smurf.height}</p>
+                </div>
             ))}
         </div>
     )
